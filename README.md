@@ -49,3 +49,7 @@ Connecting speaker to Pin J1 of Pmod Header JA and GND.
 All the other notes have higher frequency, so the counter will restart at lower values.
 
 This means that we need an 18-bit counter with a synchronous clear input, and a small combinational circuit that will set “clear" to ‘1’ when the counter reaches the value corresponding to the external switch pattern that defines the note. The same ticking pulse driving the counter “clear" input will toggle the flip-flop, so I think that it’s just these three blocks: counter + combinational circuit + toggle flip-flop.
+
+
+We increment counter until it reaches a threshold value and then toggle temp each time it hits this value. This will give us a lower slower frequency that represents a note’s frequency. For example, the note A is 440Hz. We can get this frequency from the clock by dividing 50MHz by 440Hz. We then take this value and when the counter reaches this value, we toggle temp, else we simply increment the counter.
+
