@@ -36,6 +36,7 @@ We increment the counter until it reaches one of these threshold values, and the
 * https://www.instructables.com/id/FPGA-Composer/
 * https://stackoverflow.com/questions/27317546/pulse-generator-in-vhdl-with-any-frequency
 * https://stackoverflow.com/questions/22767256/vhdl-code-for-single-octave-digital-piano
+* https://fpgaer.wordpress.com/modulo-counter/
 
 
 Connecting speaker to Pin J1 of Pmod Header JA and GND.
