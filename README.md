@@ -32,14 +32,9 @@ f<sub>Ti</sub> = 493.883 Hz -> T<sub>Ti</sub> = 1/f<sub>Ti</sub> = 2025 µs -> C
 
 * intro digital design digilent vhdl online 50/119
 * free range vhdl 147/169
-* https://vlsicoding.blogspot.com/2016/01/vhdl-code-for-generation-of-1-khz-and-1-hz-frequency.html
-* https://gist.github.com/RickKimball/45d0753a900f92d5fdd836746062588c
-* https://www.digikey.com/eewiki/pages/viewpage.action?pageId=20939345
-* https://www.bioee.ee.columbia.edu/courses/ee3082/piano/lesson_backup.html
 * https://www.instructables.com/id/FPGA-Composer/
 * https://stackoverflow.com/questions/27317546/pulse-generator-in-vhdl-with-any-frequency
 * https://stackoverflow.com/questions/22767256/vhdl-code-for-single-octave-digital-piano
-
 
 
 -- clk = 100 MHz (basys-3)
