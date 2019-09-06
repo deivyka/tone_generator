@@ -29,38 +29,23 @@ f<sub>Ti</sub> = 493.883 Hz -> T<sub>Ti</sub> = 1/f<sub>Ti</sub> = 2025 µs -> C
 
 170 262 = 10 1001 1001 0001 0110, in other words, we need a counter with 18 bits.
 
-```
--- intro digital design digilent vhdl online 50/119
--- free range vhdl 147/169
--- https://vlsicoding.blogspot.com/2016/01/vhdl-code-for-generation-of-1-khz-and-1-hz-frequency.html
--- https://gist.github.com/RickKimball/45d0753a900f92d5fdd836746062588c
--- https://www.digikey.com/eewiki/pages/viewpage.action?pageId=20939345
--- https://www.bioee.ee.columbia.edu/courses/ee3082/piano/lesson_backup.html
---** https://www.instructables.com/id/FPGA-Composer/ **
--- https://stackoverflow.com/questions/27317546/pulse-generator-in-vhdl-with-any-frequency
--- https://stackoverflow.com/questions/22767256/vhdl-code-for-single-octave-digital-piano
+
+* intro digital design digilent vhdl online 50/119
+* free range vhdl 147/169
+* https://vlsicoding.blogspot.com/2016/01/vhdl-code-for-generation-of-1-khz-and-1-hz-frequency.html
+* https://gist.github.com/RickKimball/45d0753a900f92d5fdd836746062588c
+* https://www.digikey.com/eewiki/pages/viewpage.action?pageId=20939345
+* https://www.bioee.ee.columbia.edu/courses/ee3082/piano/lesson_backup.html
+* https://www.instructables.com/id/FPGA-Composer/
+* https://stackoverflow.com/questions/27317546/pulse-generator-in-vhdl-with-any-frequency
+* https://stackoverflow.com/questions/22767256/vhdl-code-for-single-octave-digital-piano
+
+
+
 -- clk = 100 MHz (basys-3)
 
-architecture Behave of clkdiv is
-signal q : std_logic_vector(17 downto 0);
-  begin
-    process(clk)
-    variable cnt : integer range 0 to 170262;
-      begin
-        if clear = '1' then
-          q <= X"000000";
-        elsif rising_edge(clk) then
-          q <= q + 1;
-          if (cnt = 170262) then
-           clear <= '1';
-        end if;
-   end process;
-clkRe <= q()
-
-```
-
+Connecting speaker to Pin J1 of Pmod Header JA and GND.
 
 All the other notes have higher frequency, so the counter will restart at lower values.
 
 This means that we need an 18-bit counter with a synchronous clear input, and a small combinational circuit that will set “clear" to ‘1’ when the counter reaches the value corresponding to the external switch pattern that defines the note. The same ticking pulse driving the counter “clear" input will toggle the flip-flop, so I think that it’s just these three blocks: counter + combinational circuit + toggle flip-flop.
-
