@@ -13,21 +13,13 @@ architecture Behavioral of tone_gen is
     signal tmp : std_logic := '0';
     signal note : std_logic_vector(2 downto 0);
     
-    constant n_Do  : std_logic_vector := "101110101010001001";
-    constant n_Re  : std_logic_vector := "101001100100010110";
-    constant n_Mi  : std_logic_vector := "100101000010000110";
-    constant n_Fa  : std_logic_vector := "100010111101000101";
-    constant n_Sol : std_logic_vector := "11111001001000001";
-    constant n_La  : std_logic_vector := "11011101111100100";
-    constant n_Ti  : std_logic_vector := "11000101101110111";
-
-
---    constant Re : integer  := 170262;
---    constant Mi : integer  := 151686;
---    constant Fa : integer  := 143173;
---    constant Sol : integer := 127553;
---    constant La : integer  := 113636;
---    constant Ti : integer  := 101239;
+    constant n_Do  : std_logic_vector := "101110101010001001"; -- = 191113 
+    constant n_Re  : std_logic_vector := "101001100100010110"; -- = 170262
+    constant n_Mi  : std_logic_vector := "100101000010000110"; -- = 151686
+    constant n_Fa  : std_logic_vector := "100010111101000101"; -- = 143173
+    constant n_Sol : std_logic_vector := "11111001001000001"; -- = 127553
+    constant n_La  : std_logic_vector := "11011101111100100"; -- = 113636
+    constant n_Ti  : std_logic_vector := "11000101101110111"; -- = 101239
 
 begin
 count_process : process(clk, note)
@@ -39,7 +31,7 @@ count_process : process(clk, note)
                         cnt <= (others => '0');
                         tmp <= not tmp;
                     else
-                        cnt <= cnt + '1';
+                        cnt <= cnt + 1;
                     end if;
                 --------------------
                 when "001" => -- Re
@@ -47,7 +39,7 @@ count_process : process(clk, note)
                         cnt <= (others => '0');
                         tmp <= not tmp;
                     else
-                        cnt <= cnt+ '1';
+                        cnt <= cnt + 1;
                     end if;
                --------------------     
                when "010" => -- Mi
@@ -55,7 +47,7 @@ count_process : process(clk, note)
                         cnt <= (others => '0');
                         tmp <= not tmp;
                     else
-                        cnt <= cnt+ '1';
+                        cnt <= cnt + 1;
                     end if;
                --------------------     
                when "011" => -- Fa
@@ -63,7 +55,7 @@ count_process : process(clk, note)
                         cnt <= (others => '0');
                         tmp <= not tmp;
                     else
-                        cnt <= cnt+'1';
+                        cnt <= cnt + 1;
                     end if;
                --------------------     
                when "100" => -- Sol
@@ -71,7 +63,7 @@ count_process : process(clk, note)
                         cnt <= (others => '0');
                         tmp <= not tmp;
                     else
-                        cnt <= cnt+'1';
+                        cnt <= cnt + 1;
                     end if;
                --------------------     
                when "101" => -- La
@@ -79,7 +71,7 @@ count_process : process(clk, note)
                         cnt <= (others => '0');
                         tmp <= not tmp;
                     else
-                        cnt <= cnt+'1';
+                        cnt <= cnt + 1;
                     end if;
                --------------------
                when "110" => -- Ti
@@ -87,7 +79,7 @@ count_process : process(clk, note)
                         cnt <= (others => '0');
                         tmp <= not tmp;
                     else
-                        cnt <= cnt+'1';
+                        cnt <= cnt + 1;
                     end if;
                when others =>
                     tmp <= '0';
