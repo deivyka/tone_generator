@@ -10,7 +10,7 @@ end tone_gen;
 
 architecture Behavioral of tone_gen is
     signal cnt : std_logic_vector(17 downto 0) := (others => '0');
-    signal tmp : std_logic := '0';
+    signal buzz : std_logic := '0';
     signal note : std_logic_vector(2 downto 0);
     
     constant n_Do  : std_logic_vector := "101110101010001001"; -- = 191113 
@@ -29,7 +29,7 @@ count_process : process(clk, note)
                 when "000" => -- Do
                     if (cnt >= n_Do) then
                         cnt <= (others => '0');
-                        tmp <= not tmp;
+                        buzz <= not buzz;
                     else
                         cnt <= cnt + 1;
                     end if;
@@ -37,7 +37,7 @@ count_process : process(clk, note)
                 when "001" => -- Re
                     if (cnt >= n_Re) then
                         cnt <= (others => '0');
-                        tmp <= not tmp;
+                        buzz <= not buzz;
                     else
                         cnt <= cnt + 1;
                     end if;
@@ -45,7 +45,7 @@ count_process : process(clk, note)
                when "010" => -- Mi
                     if (cnt >= n_Mi) then
                         cnt <= (others => '0');
-                        tmp <= not tmp;
+                        buzz <= not buzz;
                     else
                         cnt <= cnt + 1;
                     end if;
@@ -53,7 +53,7 @@ count_process : process(clk, note)
                when "011" => -- Fa
                     if (cnt >= n_Fa) then
                         cnt <= (others => '0');
-                        tmp <= not tmp;
+                        buzz <= not buzz;
                     else
                         cnt <= cnt + 1;
                     end if;
@@ -61,7 +61,7 @@ count_process : process(clk, note)
                when "100" => -- Sol
                     if (cnt >= n_Sol) then
                         cnt <= (others => '0');
-                        tmp <= not tmp;
+                        buzz <= not buzz;
                     else
                         cnt <= cnt + 1;
                     end if;
@@ -69,7 +69,7 @@ count_process : process(clk, note)
                when "101" => -- La
                     if (cnt >= n_La) then
                         cnt <= (others => '0');
-                        tmp <= not tmp;
+                        buzz <= not buzz;
                     else
                         cnt <= cnt + 1;
                     end if;
@@ -77,42 +77,38 @@ count_process : process(clk, note)
                when "110" => -- Ti
                     if (cnt >= n_Ti) then
                         cnt <= (others => '0');
-                        tmp <= not tmp;
+                        buzz <= not buzz;
                     else
                         cnt <= cnt + 1;
                     end if;
+               --------------------
                when others =>
-                    tmp <= '0';
+                    buzz <= '0';
                     cnt <= (others => '0');
             end case;
         end if;
-    end process count_process;
-audio_out <= tmp;
+audio_out <= buzz;
+end process count_process;
 
 
 -- play notes using buttons
 play : process(Do, Re, Mi, Fa, Sol, La, Ti)
     begin
-        if (Do = '0' AND Re = '0' AND Mi = '0' 
-            AND Fa = '0'AND Sol = '0' 
-            AND La = '0' AND Ti = '0') 
-            then note <= "111"; -- play nothing
-        else
-            if Do = '1' then
-                note <= "000"; 
-            elsif Re = '1' then
-                note <= "001";
-            elsif Mi = '1' then
-                note <= "010";
-            elsif Fa = '1' then
-                note <= "011";
-            elsif Sol = '1' then
-                note <= "100";               
-            elsif La = '1' then
-                note <= "101";
-            elsif Ti = '1' then
-                note <= "110";
-            end if;
+        if Do = '1' then
+            note <= "000"; 
+        elsif Re = '1' then
+            note <= "001";
+        elsif Mi = '1' then
+            note <= "010";
+        elsif Fa = '1' then
+            note <= "011";
+        elsif Sol = '1' then
+            note <= "100";               
+        elsif La = '1' then
+            note <= "101";
+        elsif Ti = '1' then
+            note <= "110";
+        else note <= "111"; -- play nothing
         end if;
     end process play;          
 end Behavioral;
