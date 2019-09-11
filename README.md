@@ -20,8 +20,10 @@ This means that the counter must count from 0 to 191 113, then generate a tickin
 All the other notes have higher frequency, so the counter will restart at lower values (for example, the “Re" frequency at 293.665 Hz requires the counter to go up to ((1/293.665)*1000000000/2)/10 = 170 262 before restarting)
 
 
-*Since the period T<sub>Do</sub> = 3822 µs the counter should issue a pulse to toggle the flip-flop every 3822/2 = 1911 µs* 
-*The Basys-3 clock frequency is 100 MHz (10 ns period), there will be 191 100 clock cycles during the 1911 µs (= 191 100 ns) – actually the exact value is ((1/261.626)*(10^9)/2)/10 = 191 113. This means that the counter must count from 0 to 191 113, then generate a ticking pulse to toggle the flip-flop, and restart counting from 0*
+Since the period T<sub>Do</sub> = 3822 µs the counter should issue a pulse to toggle the flip-flop every 3822/2 = 1911 µs
+
+The Basys-3 clock frequency is 100 MHz (10 ns period), there will be 191 100 clock cycles during the 1911 µs (= 191 100 ns) – actually the exact value is ((1/261.626)*(10^9)/2)/10 = 191 113. This means that the counter must count from 0 to 191 113, then generate a ticking pulse to toggle the flip-flop, and restart counting from 0
+
 ---
 Formula: ((1/261.626)*(10^9)/2)/10 = 191 113
 
