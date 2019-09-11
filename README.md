@@ -21,7 +21,7 @@ We can find the required clock cycles needed to toggle the pulse if we convert 1
 <img src="https://github.com/vjhansen/tone_generator/blob/master/form.png" alt="drawing" width="350"/>
 
 
-The exact clock cycle for "Do" is: (100*10^6)/(2*261.626) = 191 113. This means that the counter must count from 0 to 191 113, then generate a ticking pulse to toggle the flip-flop, and restart counting from 0.
+The exact clock cycle for "Do" is: (100 * 10^6)/(2 * 261.626) = 191 113. This means that the counter must count from 0 to 191 113, then generate a ticking pulse to toggle the flip-flop, and restart counting from 0.
 
 
 ![alt text](https://github.com/vjhansen/tone_generator/blob/master/scale.png?raw=true)
