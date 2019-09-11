@@ -35,14 +35,14 @@ end process;
 stim: process
 begin
         Mi <= '1';
-        wait for clk_period;
+        wait for clk_period*1000*10000; -- 100 ms
         Fa <= '1';
-        wait for clk_period;
+        wait for clk_period*1000*10000;
         Sol <= '1';
-        wait for clk_period;
+        wait for clk_period*1000*10000;
         La <= '1';
-        wait for clk_period;
+        wait for clk_period*1000*10000;
         Ti <= '1';
-        wait for clk_period;
+        wait for clk_period*1000*10000;
 end process;
 end;
