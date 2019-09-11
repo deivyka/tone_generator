@@ -28,17 +28,17 @@ The exact clock cycle for "Do" is: (100·10^6 Hz)/(2·261.626 Hz) = 191 113. Thi
 ---
 Using the formula to calculate values for the other notes:
 
-f<sub>Re</sub> = 293.665 Hz → Count to 170 262.
+*f<sub>Re</sub>* = 293.665 Hz → Count to 170 262.
 
-f<sub>Mi</sub> = 329.628 Hz → Count to 151 686.
+*f<sub>Mi</sub>* = 329.628 Hz → Count to 151 686.
 
-f<sub>Fa</sub> = 349.228 Hz → Count to 143 173.
+*f<sub>Fa</sub>* = 349.228 Hz → Count to 143 173.
 
-f<sub>Sol</sub> = 391.995 Hz → Count to 127 553.
+*f<sub>Sol</sub>* = 391.995 Hz → Count to 127 553.
 
-f<sub>La</sub> = 440.000 Hz → Count to 113 636.
+*f<sub>La</sub>* = 440.000 Hz → Count to 113 636.
 
-f<sub>Ti</sub> = 493.883 Hz → Count to 101 239.
+*f<sub>Ti</sub>* = 493.883 Hz → Count to 101 239.
 
 We increment a counter until it reaches one of these threshold values, and then toggle the buzzer each time the counter hits the desired value.
 
