@@ -40,7 +40,7 @@ f<sub>La</sub> = 440.000 Hz → Count to 113 636.
 
 f<sub>Ti</sub> = 493.883 Hz → Count to 101 239.
 
-We increment a counter until it reaches one of these threshold values, and then toggle the ```buzzer``` each time the counter hits the desired value.
+We increment a counter until it reaches one of these threshold values, and then toggle the buzzer each time the counter hits the desired value.
 
 ---
 We need a counter with 18 bits since 191 113 = 10 1110 1010 1000 1001.
