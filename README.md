@@ -13,8 +13,10 @@ f<sub>Do</sub> = 261.626 Hz -> T<sub>Do</sub> = 1/f<sub>Do</sub> = 3822 µs
 
 
 Consider the first note “Do" at 261.626 Hz (just a little more than 261 Hz):
-This frequency corresponds to a period of 3822 microseconds, meaning that the counter should issue a pulse to toggle the flip-flop every 3822 / 2 = 1911 µs
-Since the Basys-3 clock frequency is 100 MHz (10 ns period), there will be 191 100 clock cycles during the 1911 µs – actually the exact value is ((1/261.626)*1000000000/2)/10 = 191 113. This means that the counter must count from 0 to 191 113, then generate a ticking pulse to toggle the flip-flop, and restart counting from 0 (in other words, we need a counter with 18 bits)
+This frequency corresponds to a period of 3822 microseconds, meaning that the counter should issue a pulse to toggle the flip-flop every 3822 / 2 = 1911 µs.
+
+Since the Basys-3 clock frequency is 100 MHz (10 ns period), there will be 191 100 clock cycles during the 1911 µs – actually the exact value is ((1/261.626)*1000000000/2)/10 = 191 113. 
+This means that the counter must count from 0 to 191 113, then generate a ticking pulse to toggle the flip-flop, and restart counting from 0 (in other words, we need a counter with 18 bits)
 All the other notes have higher frequency, so the counter will restart at lower values (for example, the “Re" frequency at 293.665 Hz requires the counter to go up to ((1/293.665)*1000000000/2)/10 = 170 262 before restarting)
 
 
@@ -59,7 +61,7 @@ So in total it will take (((1/261.626) / 2 ) x 10^9) / 10 clock periods to gener
 
 This means that we need an 18-bit counter with a synchronous clear input, and a small combinational circuit that will set “clear" to ‘1’ when the counter reaches the value corresponding to the external switch pattern that defines the note. The same ticking pulse driving the counter “clear" input will toggle the flip-flop, so I think that it’s just these three blocks: counter + combinational circuit + toggle flip-flop.
  
-
+---
 The audible frequencies are very low, so we should simulate for at least 100 ms, and in that case we’ll would get 26 square wave periods for the lowest frequency “Do” note (approx 261 Hz). 
 The alternative is to compare with lower values – for example 19 111 instead of 191 113 (if we divide the comparison values by 10 the simulation will be 10 times faster). But I would prefer to let it simulate for 100 ms and use the real values…
 
