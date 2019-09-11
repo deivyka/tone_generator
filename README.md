@@ -16,9 +16,11 @@ The Basys-3 board runs at 100 MHz, the period is 10 ns (= 10<sup>-8</sup> s).
 We can find the required clock cycles needed to toggle the pulse if we convert 1911 µs into nanoseconds: ((1911 µs) x 10^9 s)/10 = 191 100 ns, there will be 191 100 clock cycles during the 1911 µs.
 
 
-![alt text](https://github.com/vjhansen/tone_generator/blob/master/form.png?raw=true)
 
-The exact value is: ((1/261.626)*(10^9)/2)/10 = 191 113. 
+<img src="https://github.com/vjhansen/tone_generator/blob/master/form.png" alt="drawing" width="350"/>
+
+
+The exact clock cycle for "Do" is: ((1/261.626)*(10^9)/2)/10 = 191 113. 
 
 
 This means that the counter must count from 0 to 191 113, then generate a ticking pulse to toggle the flip-flop, and restart counting from 0
