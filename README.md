@@ -1,7 +1,7 @@
-# Tone Generator for octave 4 :notes:
+# Tone Generator for octave 4
 
 Canvas: (http://bit.ly/30YTM7I). 
--- clk = 100 MHz (basys-3)
+
 
 Connecting speaker (piezo buzzer) to Pin K2 of Pmod Header JA and GND.
 
