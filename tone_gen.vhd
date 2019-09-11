@@ -13,13 +13,13 @@ architecture Behavioral of tone_gen is
     signal buzz : std_logic := '0';
     signal note : std_logic_vector(2 downto 0);
     
-    constant n_Do  : std_logic_vector := "101110101010001001"; -- = 191113 
-    constant n_Re  : std_logic_vector := "101001100100010110"; -- = 170262
-    constant n_Mi  : std_logic_vector := "100101000010000110"; -- = 151686
-    constant n_Fa  : std_logic_vector := "100010111101000101"; -- = 143173
-    constant n_Sol : std_logic_vector := "11111001001000001"; -- = 127553
-    constant n_La  : std_logic_vector := "11011101111100100"; -- = 113636
-    constant n_Ti  : std_logic_vector := "11000101101110111"; -- = 101239
+    constant n_Do  : std_logic_vector := "101110101010001001";  -- = 191113 
+    constant n_Re  : std_logic_vector := "101001100100010110";  -- = 170262
+    constant n_Mi  : std_logic_vector := "100101000010000110";  -- = 151686
+    constant n_Fa  : std_logic_vector := "100010111101000101";  -- = 143173
+    constant n_Sol : std_logic_vector := "11111001001000001";   -- = 127553
+    constant n_La  : std_logic_vector := "11011101111100100";   -- = 113636
+    constant n_Ti  : std_logic_vector := "11000101101110111";   -- = 101239
 
 begin
 count_process : process(clk, note)
@@ -27,11 +27,11 @@ count_process : process(clk, note)
         if rising_edge(clk) then
             case note is
                 when "000" => -- Do
-                    if (cnt >= n_Do) then
-                        cnt <= (others => '0');
-                        buzz <= not buzz;
+                    if (cnt >= n_Do) then -- reached count of 'Do'
+                        cnt <= (others => '0'); -- clear
+                        buzz <= not buzz; -- toggle
                     else
-                        cnt <= cnt + 1;
+                        cnt <= cnt + 1; -- continue
                     end if;
                 --------------------
                 when "001" => -- Re
@@ -91,7 +91,7 @@ audio_out <= buzz;
 end process count_process;
 
 
--- play notes using buttons
+-- play notes using switches
 play : process(Do, Re, Mi, Fa, Sol, La, Ti)
     begin
         if Do = '1' then
