@@ -25,7 +25,7 @@ The exact clock cycle for "Do" is: (100·10^6 Hz)/(2·261.626 Hz) = 191 113. Thi
 
 
 ---
-<img src="https://github.com/vjhansen/tone_generator/blob/master/form.PNG" alt="drawing" width="300"/>
+<img src="https://github.com/vjhansen/tone_generator/blob/master/form.PNG" alt="drawing" width="450"/>
 
 
 Using the formula to calculate values for the other notes:
