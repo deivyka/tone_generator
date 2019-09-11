@@ -1,6 +1,6 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-use ieee.std_logic_unsigned.all;
+use IEEE.std_logic_unsigned.ALL;
 
 entity tone_gen is
     Port (clk : in std_logic;
@@ -10,7 +10,7 @@ end tone_gen;
 
 architecture Behavioral of tone_gen is
     signal cnt : std_logic_vector(17 downto 0) := (others => '0');
-    signal buzz : std_logic := '0';
+    signal toggle : std_logic := '0';
     signal note : std_logic_vector(2 downto 0);
     
     constant n_Do  : std_logic_vector := "101110101010001001";  -- = 191113 
@@ -27,9 +27,9 @@ count_process : process(clk, note)
         if rising_edge(clk) then
             case note is
                 when "000" => -- Do
-                    if (cnt >= n_Do) then -- reached count of 'Do'
+                    if (cnt >= n_Do) then
                         cnt <= (others => '0'); -- clear
-                        buzz <= not buzz; -- toggle
+                        toggle <= not toggle; -- toggle pulse
                     else
                         cnt <= cnt + 1; -- continue
                     end if;
@@ -37,7 +37,7 @@ count_process : process(clk, note)
                 when "001" => -- Re
                     if (cnt >= n_Re) then
                         cnt <= (others => '0');
-                        buzz <= not buzz;
+                        toggle <= not toggle;
                     else
                         cnt <= cnt + 1;
                     end if;
@@ -45,7 +45,7 @@ count_process : process(clk, note)
                when "010" => -- Mi
                     if (cnt >= n_Mi) then
                         cnt <= (others => '0');
-                        buzz <= not buzz;
+                        toggle <= not toggle;
                     else
                         cnt <= cnt + 1;
                     end if;
@@ -53,7 +53,7 @@ count_process : process(clk, note)
                when "011" => -- Fa
                     if (cnt >= n_Fa) then
                         cnt <= (others => '0');
-                        buzz <= not buzz;
+                        toggle <= not toggle;
                     else
                         cnt <= cnt + 1;
                     end if;
@@ -61,7 +61,7 @@ count_process : process(clk, note)
                when "100" => -- Sol
                     if (cnt >= n_Sol) then
                         cnt <= (others => '0');
-                        buzz <= not buzz;
+                        toggle <= not toggle;
                     else
                         cnt <= cnt + 1;
                     end if;
@@ -69,7 +69,7 @@ count_process : process(clk, note)
                when "101" => -- La
                     if (cnt >= n_La) then
                         cnt <= (others => '0');
-                        buzz <= not buzz;
+                        toggle <= not toggle;
                     else
                         cnt <= cnt + 1;
                     end if;
@@ -77,17 +77,17 @@ count_process : process(clk, note)
                when "110" => -- Ti
                     if (cnt >= n_Ti) then
                         cnt <= (others => '0');
-                        buzz <= not buzz;
+                        toggle <= not toggle;
                     else
                         cnt <= cnt + 1;
                     end if;
                --------------------
                when others =>
-                    buzz <= '0';
+                    toggle <= '0';
                     cnt <= (others => '0');
             end case;
         end if;
-audio_out <= buzz;
+audio_out <= toggle;
 end process count_process;
 
 
