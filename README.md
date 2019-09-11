@@ -10,7 +10,9 @@ Connect speaker (piezo buzzer) to Pin K2 of Pmod Header JA and GND on the Basys 
 This circuit is a modulus counter plus toggle flip-flop.
 
 
-The “Do” musical note *f<sub>Do</sub>* has a frequency of 261.626 Hz, the period (or cycle) *T<sub>Do</sub> = 1/f<sub>Do</sub>* = (1/261.626) = 3822 µs. The counter should therefore issue a pulse to toggle the flip-flop every 3822/2 = 1911 µs, this is because a square wave has equal high (1) and low (0) periods (i.e. high for 50% of the period, and low for the remaining period)
+The “Do” musical note *f<sub>Do</sub>* has a frequency of 261.626 Hz, and the period (or cycle) *T<sub>Do</sub> = 1/f<sub>Do</sub>* = (1/261.626) = 3822 µs. 
+
+To generate a square wave for *f<sub>Do</sub>* we need a counter that toggles a flip-flop every 3822/2 = 1911 µs, this is because a square wave has equal high (1) and low (0) periods (i.e. high for 50% of the period, and low for the remaining period)
 
 The Basys-3 board runs at 100 MHz, the period is 10 ns (= 10<sup>-8</sup> s).
 We can find the required clock cycles needed to toggle the pulse if we convert 1911 µs into nanoseconds: (1911 µs · 10^9 s)/10 = 191 100 ns, there will be 191 100 clock cycles during the 1911 µs.
