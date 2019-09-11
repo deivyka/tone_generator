@@ -41,7 +41,6 @@ We increment the counter until it reaches one of these threshold values, and the
 
 
 
-
 All the other notes have higher frequency, so the counter will restart at lower values.
 
 This means that we need an 18-bit counter with a synchronous clear input, and a small combinational circuit that will set “clear" to ‘1’ when the counter reaches the value corresponding to the external switch pattern that defines the note. The same ticking pulse driving the counter “clear" input will toggle the flip-flop, so I think that it’s just these three blocks: counter + combinational circuit + toggle flip-flop.
@@ -54,7 +53,6 @@ This means that we need an 18-bit counter with a synchronous clear input, and a 
 
 ---
 
-
 Explanation of the formula:
 The “Do” musical note has a frequency of 261.626 Hz (it’s not 261 KHz, the dot separates the entire part from the fractional part), so it’s period is (1/261.626) in seconds
 Assuming a square wave, this means that half of this time will be ‘0’ and the other half ‘1’: ((1/261.626) / 2) for each half period
@@ -63,13 +61,7 @@ Since the Basys-3 board runs at 100 MHz, the board clock period is 10 ns (and th
 So in total it will take (((1/261.626) / 2 ) x 10^9) / 10 clock periods to generate half period of the square wave driving the buzzer 
 
 This means that we need an 18-bit counter with a synchronous clear input, and a small combinational circuit that will set “clear" to ‘1’ when the counter reaches the value corresponding to the external switch pattern that defines the note. The same ticking pulse driving the counter “clear" input will toggle the flip-flop, so I think that it’s just these three blocks: counter + combinational circuit + toggle flip-flop.
-
-Explanation of the formula:
-The “Do” musical note has a frequency of 261.626 Hz (it’s not 261 KHz, the dot separates the entire part from the fractional part), so it’s period is (1/261.626) in seconds
-Assuming a square wave, this means that half of this time will be ‘0’ and the other half ‘1’: ((1/261.626) / 2) for each half period
-If we convert this to nano-seconds we get ((1/261.626) / 2 ) x 10^9 (that’s why we have nine zeros)
-Since the Basys-3 board runs at 100 MHz, the board clock period is 10 ns (and the counter will increment once per clock period)
-So in total it will take (((1/261.626) / 2 ) x 10^9) / 10 clock periods to generate half period of the square wave driving the buzzer 
+ 
 
 The audible frequencies are very low, so we should simulate for at least 100 ms, and in that case we’ll would get 26 square wave periods for the lowest frequency “Do” note (approx 261 Hz). 
 The alternative is to compare with lower values – for example 19 111 instead of 191 113 (if we divide the comparison values by 10 the simulation will be 10 times faster). But I would prefer to let it simulate for 100 ms and use the real values…
