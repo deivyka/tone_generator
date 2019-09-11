@@ -48,9 +48,6 @@ This means that we need an 18-bit counter with a synchronous clear input, and a 
 
 
 
-
-
-
 ---
 
 Explanation of the formula:
