@@ -6,23 +6,24 @@
 ## Clock signal
 set_property PACKAGE_PIN W5 [get_ports clk]							
 	set_property IOSTANDARD LVCMOS33 [get_ports clk]
-	#create_clock -add -name sys_clk_pin -period 10.00 -waveform {0 5} [get_ports clk]
+	#create_clock -period 10.00 -name clk [get_ports clk]
  
 ## Switches
-set_property PACKAGE_PIN V17 [get_ports {Do}]					
-	set_property IOSTANDARD LVCMOS33 [get_ports {Do}]
-set_property PACKAGE_PIN V16 [get_ports {Re}]					
-	set_property IOSTANDARD LVCMOS33 [get_ports {Re}]
-set_property PACKAGE_PIN W16 [get_ports {Mi}]					
-	set_property IOSTANDARD LVCMOS33 [get_ports {Mi}]
-set_property PACKAGE_PIN W17 [get_ports {Fa}]					
-	set_property IOSTANDARD LVCMOS33 [get_ports {Fa}]
-set_property PACKAGE_PIN W15 [get_ports {Sol}]					
-	set_property IOSTANDARD LVCMOS33 [get_ports {Sol}]
-set_property PACKAGE_PIN V15 [get_ports {La}]					
-	set_property IOSTANDARD LVCMOS33 [get_ports {La}]
-set_property PACKAGE_PIN W14 [get_ports {Ti}]					
-	set_property IOSTANDARD LVCMOS33 [get_ports {Ti}]
+## fra høyre mot venstre
+set_property PACKAGE_PIN V17 [get_ports {play_notes[0]}]					
+	set_property IOSTANDARD LVCMOS33 [get_ports {play_notes[0]}]
+set_property PACKAGE_PIN V16 [get_ports {play_notes[1]}]					
+	set_property IOSTANDARD LVCMOS33 [get_ports {play_notes[1]}]
+set_property PACKAGE_PIN W16 [get_ports {play_notes[2]}]					
+	set_property IOSTANDARD LVCMOS33 [get_ports {play_notes[2]}]
+#set_property PACKAGE_PIN W17 [get_ports {Fa_btn}]					
+#	set_property IOSTANDARD LVCMOS33 [get_ports {Fa_btn}]
+#set_property PACKAGE_PIN W15 [get_ports {Sol_btn}]					
+#	set_property IOSTANDARD LVCMOS33 [get_ports {Sol_btn}]
+#set_property PACKAGE_PIN V15 [get_ports {La_btn}]					
+#	set_property IOSTANDARD LVCMOS33 [get_ports {La_btn}]
+#set_property PACKAGE_PIN W14 [get_ports {Ti_btn}]					
+#	set_property IOSTANDARD LVCMOS33 [get_ports {Ti_btn}]
 
 
 #set_property PACKAGE_PIN W13 [get_ports {sw[7]}]					
@@ -110,8 +111,8 @@ set_property PACKAGE_PIN W14 [get_ports {Ti}]
 
 
 ##Buttons
-#set_property PACKAGE_PIN U18 [get_ports btnC]						
-	#set_property IOSTANDARD LVCMOS33 [get_ports btnC]
+set_property PACKAGE_PIN U18 [get_ports reset]						
+	set_property IOSTANDARD LVCMOS33 [get_ports reset]
 #set_property PACKAGE_PIN T18 [get_ports btnU]						
 	#set_property IOSTANDARD LVCMOS33 [get_ports btnU]
 #set_property PACKAGE_PIN W19 [get_ports btnL]						
@@ -139,11 +140,11 @@ set_property PACKAGE_PIN W14 [get_ports {Ti}]
 ##Sch name = JA7
 #set_property PACKAGE_PIN H1 [get_ports {JA[4]}]					
 	#set_property IOSTANDARD LVCMOS33 [get_ports {JA[4]}]
-	
+
 ##Sch name = JA8
 set_property PACKAGE_PIN K2 [get_ports {audio_out}]					
 	set_property IOSTANDARD LVCMOS33 [get_ports {audio_out}]
-	
+
 ##Sch name = JA9
 #set_property PACKAGE_PIN H2 [get_ports {JA[6]}]					
 	#set_property IOSTANDARD LVCMOS33 [get_ports {JA[6]}]
