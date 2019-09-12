@@ -16,7 +16,7 @@ begin
               clk => clk, reset => reset, clear_sig => clearing, c_out => val         
           );
 
-  tone_gen : entity work.tone_gen port map
+  generator : entity work.tone_gen port map
         (
           clk=>clk, val_in=>val, play_notes=>play_notes,
           clearing=>clearing, audio_out=>audio_out       
