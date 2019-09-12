@@ -5,8 +5,7 @@ Canvas: (http://bit.ly/30YTM7I).
 
 ![alt text](https://github.com/vjhansen/tone_generator/blob/master/misc/W04D1ToneGenerator.png?raw=true)
 
-This circuit is a modulus counter plus toggle flip-flop. I connected a speaker (piezo buzzer) to Pin K2 of Pmod Header JA and GND on the Basys 3.
-
+This circuit is a modulus counter plus toggle flip-flop. 
 
 The “Do” musical note *f<sub>Do</sub>* has a frequency of 261.626 Hz, and the period (or cycle) *T<sub>Do</sub> = 1/f<sub>Do</sub>* = (1/261.626) = 3822 µs. 
 
@@ -45,3 +44,12 @@ We increment a counter until it reaches one of these threshold values, and then 
 ---
 We need a counter with 18 bits since 191 113 = 10 1110 1010 1000 1001.
 When the counter reaches the 18-bit value defined by the switches (e.g. Re), the output will toggle the flip-flop and generate a square wave that plays a note. The counter will then be cleared, and we can resume the counting. 
+
+---
+Use the following files if you want to run the tone generator:
+- top-design/counter.vhd 
+- top-design/top.vhd
+- constrs_tone_gen.xdc (constraints)
+- tonegen_tb.vhd (testbench)
+
+You can also connect a speaker (piezo buzzer) to Pin K2 of Pmod Header JA and GND on the Basys 3.
