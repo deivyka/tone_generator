@@ -8,20 +8,20 @@ end tonegen_tb;
 architecture Behavioral of tonegen_tb is
     constant clk_period : time := 10ns;
 
-component tone_gen
-      Port (clk : in std_logic;
-            Do, Re, Mi, Fa, Sol, La, Ti : in std_logic;  
+component top
+      Port (clk, reset : in std_logic;
+            note_sw: in std_logic_vector(2 downto 0);  
             audio_out : out std_logic);
 end component;
 
-signal clk, Do, Re, Mi, Fa, Sol, La, Ti : std_logic;  
+signal clk, reset : std_logic; 
+signal note_sw: std_logic_vector(2 downto 0);
 signal audio_out : std_logic;
 begin
-uut: tone_gen port map
+uut: top port map
         (
-            clk => clk, Do => Do, Re => Re,
-            Mi => Mi, Fa => Fa, Sol => Sol, 
-            La => La, Ti => Ti, audio_out => audio_out
+            clk=>clk, reset=>reset,
+            note_sw=>note_sw, audio_out=>audio_out
         );
 
 clk_process: process
@@ -34,16 +34,18 @@ end process;
 
 stim: process
 begin
-        wait for clk_period*1000*10000; -- 100 ms
-        Mi <= '1';
+        reset <= '1';
+        wait for clk_period;
+        reset <= '0';
+        note_sw <= "001";
         wait for clk_period*1000*10000;
-        Fa <= '1';
+        note_sw <= "010";
         wait for clk_period*1000*10000;
-        Sol <= '1';
-        wait for clk_period*1000*10000;
-        La <= '1';
-        wait for clk_period*1000*10000;
-        Ti <= '1';
-        wait for clk_period*1000*10000;
+--        note_sw <= "011";
+--        wait for clk_period*1000*10000;
+--        note_sw <= "100";
+--        wait for clk_period*1000*10000;
+--        note_sw <= "101";
+--        wait for clk_period*1000*10000;
 end process;
 end;
