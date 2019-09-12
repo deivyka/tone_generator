@@ -4,8 +4,7 @@ use IEEE.std_logic_unsigned.all;
 use ieee.numeric_std.all;
 
 entity UniBitCnt is
-  Port (clk, reset: in std_logic;
-        clear_sig : in std_logic;
+  Port (clk, reset, clear_sig: in std_logic;
         c_out : out std_logic_vector(17 downto 0));
 end UniBitCnt;
 
