@@ -3,7 +3,7 @@
 Canvas: (http://bit.ly/30YTM7I). 
 
 
-![alt text](https://github.com/vjhansen/tone_generator/blob/master/W04D1ToneGenerator.png?raw=true)
+![alt text](https://github.com/vjhansen/tone_generator/blob/master/misc/W04D1ToneGenerator.png?raw=true)
 
 This circuit is a modulus counter plus toggle flip-flop. I connected a speaker (piezo buzzer) to Pin K2 of Pmod Header JA and GND on the Basys 3.
 
@@ -19,11 +19,11 @@ The required clock cycles needed to toggle the pulse are found by 'converting' 1
 The exact clock cycle for "Do" is: (100·10^6 Hz)/(2·261.626 Hz) = 191 113. This means that the counter must count from 0 to 191 113, then generate a ticking pulse to toggle the flip-flop, and resume counting from 0.
 
 
-![alt text](https://github.com/vjhansen/tone_generator/blob/master/scale.png?raw=true)
+![alt text](https://github.com/vjhansen/tone_generator/blob/master/misc/scale.png?raw=true)
 
 
 ---
-<img src="https://github.com/vjhansen/tone_generator/blob/master/form.PNG" alt="drawing" width="450"/>
+<img src="https://github.com/vjhansen/tone_generator/blob/master/misc/form.PNG" alt="drawing" width="450"/>
 
 
 Using the formula to calculate values for the other notes:
