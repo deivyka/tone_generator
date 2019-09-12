@@ -10,15 +10,15 @@ end top;
 architecture Behavioral of top is
 signal val : std_logic_vector(17 downto 0);
 signal clearing : std_logic;
-
 begin
-u1 : entity work.UniBitCnt port map(
-            clk => clk, reset => reset, clear_sig => clearing, c_out => val         
-);
+  u1 : entity work.UniBitCnt port map
+          (
+              clk => clk, reset => reset, clear_sig => clearing, c_out => val         
+          );
 
-ut : entity work.tone_gen port map(
-        clk=>clk, val_in=>val, play_notes=>play_notes,
-        clearing=>clearing, audio_out=>audio_out       
-);
-
+  ut : entity work.tone_gen port map
+        (
+          clk=>clk, val_in=>val, play_notes=>play_notes,
+          clearing=>clearing, audio_out=>audio_out       
+        );
 end Behavioral;
