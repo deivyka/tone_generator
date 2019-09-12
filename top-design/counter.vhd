@@ -1,5 +1,3 @@
--- universal binary counter
-
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use ieee.std_logic_unsigned.all;
@@ -36,15 +34,11 @@ begin
         ffout <= ffin;
     end if;
 end process;
-
-
 -- Next-state logic (combinational)
 ffin <= (others => '0') when (clear = '1') 
             else ffout+1;
-
 -- output logic (combinational)
 Q <= std_logic_vector(ffout);
-        
 process(Q, note)
     begin
         if(Q >= note) then
