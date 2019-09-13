@@ -37,6 +37,7 @@ begin
         reset <= '1';
         wait for clk_period;
         reset <= '0';
+        wait for clk_period*1000*10000;
         note_sw <= "001";
         wait for clk_period*1000*10000;
         note_sw <= "010";
