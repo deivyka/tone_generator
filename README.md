@@ -42,7 +42,7 @@ Using the formula to calculate values for the other notes:
 We increment a counter until it reaches one of these threshold values, and then toggle the buzzer each time the counter hits the desired value.
 
 ---
-We need a counter with 18 bits since 191 113 = 10 1110 1010 1000 1001.
+We need a counter with 18 bits since 191 113 = `10 1110 1010 1000 1001`.
 When the counter reaches the 18-bit value defined by the switches (e.g. Re), the output will toggle the flip-flop and generate a square wave that plays a note. The counter will then be cleared, and we can resume the counting. 
 
 ---
